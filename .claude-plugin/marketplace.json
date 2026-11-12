@@ -19,6 +19,10 @@
     {
       "name": "evidence-band",
       "source": "./evidence-band"
+    },
+    {
+      "name": "agent-board",
+      "source": "./agent-board"
     }
   ]
 }

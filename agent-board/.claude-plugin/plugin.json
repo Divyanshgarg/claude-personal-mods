@@ -1,0 +1,1 @@
+{ "name": "agent-board", "version": "0.1.0", "description": "A pane listing every subagent the session dispatched: its brief, status, tool calls, token spend and one-line result.", "types": "./types/index.d.ts" }
