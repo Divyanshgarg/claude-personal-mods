@@ -5,7 +5,7 @@ Personal Claude Code mods.
 - **session-ledger**: a side pane that logs every tool call of the session with its time, target, duration and pass/fail. Open it with `/ledger`.
 - **env-status**: a status line showing the session's working directory, whether the FM share is mounted, and the git branch. Re-check with `/env`.
 
-- **worklog**: keeps one dated entry per session in the project's `WORKLOG.md`: what was asked, which files changed, commands run and where it stands. Write it on demand with `/worklog`. Note: it creates `WORKLOG.md` in every project it runs in.
+- **worklog**: keeps one dated entry per session in the project's `WORKLOG.md`: what was asked, which files changed, commands run and where it stands. Browse it in a side pane with `/worklog`, which also writes the entry on demand. Note: it creates `WORKLOG.md` in every project it runs in.
 
 ## Install
 

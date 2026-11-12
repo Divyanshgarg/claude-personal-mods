@@ -79,3 +79,78 @@ test('entries of other sessions are kept', async ($, on) => {
   expect(text.startsWith(old.trimEnd())).toBe(true)
   expect(text.includes('<!-- session:new -->')).toBe(true)
 })
+
+test('the pane lists sessions from the file, newest first, and opens one', async ($, on) => {
+  const text = [
+    '# Work log',
+    '',
+    '<!-- session:one -->',
+    '## 2026-11-10 09:00 · First job',
+    '',
+    '**Asked**',
+    '- First job',
+    '',
+    '**Files changed** (1)',
+    '- `src/a.ts`',
+    '',
+    '**Commands:** 4 run, 1 failed',
+    '',
+    '**Where it stands**',
+    '',
+    '> All done.',
+    '<!-- /session:one -->',
+    '',
+    '<!-- session:two -->',
+    '## 2026-11-11 10:00 · Second job',
+    '',
+    '**Asked**',
+    '- Second job',
+    '',
+    '**Files changed** (0)',
+    '- none',
+    '',
+    '**Commands:** 1 run, 0 failed',
+    '',
+    '**Where it stands**',
+    '',
+    '> Half done.',
+    '<!-- /session:two -->',
+    '',
+  ].join('\n')
+
+  on('command.register', () => ({ value: { command: 'worklog' } }))
+  on('session.start', (_, e) => ({ cwd: e.cwd }))
+  on('session.root', () => ({ value: '/proj' }))
+  on('session.id', () => ({ value: 'two' }))
+  on('fs.exists', () => ({ value: true }))
+  on('fs.read', () => ({ value: text }))
+
+  await $.session.start({ cwd: '/proj', surface: 'desktop', isInteractive: true })
+
+  for (const surface of ['terminal', 'desktop'] as const) {
+    const ui = await $.ui.mount({
+      plugin: 'worklog',
+      component: 'Pane',
+      requestId: 'worklog',
+      props: {
+        title: 'Work log',
+        isFocused: false,
+        bodyColumns: 60,
+        placement: 'dock',
+        scroll: { offset: 0, bodyRows: 40 },
+        view: {},
+      },
+      surface,
+    })
+
+    expect((await ui.find({ type: 'Text', text: /sessions in/ }))?.text).toBe('2 sessions in WORKLOG.md')
+    // This session's entry is open; the older one is closed until pressed.
+    expect((await ui.find({ type: 'Text', text: /Second job/ })) !== undefined).toBe(true)
+    expect(await ui.find({ type: 'Text', text: /src\/a\.ts/ })).toBe(undefined)
+    await ui.press({ key: 'toggle-one' })
+    expect((await ui.find({ type: 'Text', text: /src\/a\.ts/ }))?.text).toBe('src/a.ts')
+    expect((await ui.find({ type: 'Text', text: /1 failed/ })) !== undefined).toBe(true)
+    await ui.press({ key: 'toggle-one' })
+    await ui.unmount()
+  }
+})
