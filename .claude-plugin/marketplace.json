@@ -15,6 +15,10 @@
     {
       "name": "worklog",
       "source": "./worklog"
+    },
+    {
+      "name": "evidence-band",
+      "source": "./evidence-band"
     }
   ]
 }

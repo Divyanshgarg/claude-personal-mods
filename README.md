@@ -7,6 +7,8 @@ Personal Claude Code mods.
 
 - **worklog**: keeps one dated entry per session in the project's `WORKLOG.md`: what was asked, which files changed, commands run and where it stands. Browse it in a side pane with `/worklog`, which also writes the entry on demand. Note: it creates `WORKLOG.md` in every project it runs in.
 
+- **evidence-band**: a band above the prompt showing whether the session's edits are backed by a passing check (tests, build, lint, type-check), plus uncommitted and unpushed counts. Print the verdict with `/evidence`.
+
 ## Install
 
 This repository is private: the machine needs a git credential for github.com (an SSH key, or `gh auth login` then `gh auth setup-git`).
@@ -17,6 +19,7 @@ From a shell:
 claude plugin install session-ledger --marketplace Divyanshgarg/claude-personal-mods
 claude plugin install env-status --marketplace Divyanshgarg/claude-personal-mods
 claude plugin install worklog --marketplace Divyanshgarg/claude-personal-mods
+claude plugin install evidence-band --marketplace Divyanshgarg/claude-personal-mods
 ```
 
 At the prompt of a terminal session:
@@ -25,6 +28,7 @@ At the prompt of a terminal session:
 /plugin install session-ledger --marketplace Divyanshgarg/claude-personal-mods
 /plugin install env-status --marketplace Divyanshgarg/claude-personal-mods
 /plugin install worklog --marketplace Divyanshgarg/claude-personal-mods
+/plugin install evidence-band --marketplace Divyanshgarg/claude-personal-mods
 ```
 
 In the desktop app: click + next to the prompt box, then Plugins, Add marketplace with `Divyanshgarg/claude-personal-mods`, then Add plugin.
@@ -36,4 +40,5 @@ claude plugin marketplace update personal-mods
 claude plugin update session-ledger@personal-mods
 claude plugin update env-status@personal-mods
 claude plugin update worklog@personal-mods
+claude plugin update evidence-band@personal-mods
 ```

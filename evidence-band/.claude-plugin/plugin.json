@@ -1,0 +1,1 @@
+{ "name": "evidence-band", "version": "0.1.0", "description": "A band above the prompt showing whether the session's edits are backed by a passing check, and what is uncommitted or unpushed.", "types": "./types/index.d.ts" }
