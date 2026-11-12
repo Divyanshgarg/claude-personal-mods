@@ -1,0 +1,1 @@
+{ "name": "destructive-guard", "version": "0.1.0", "description": "Asks you before a destructive shell command runs (recursive deletes, force pushes, Oracle imports, schema drops, docker context switches and the like), showing the exact command." }

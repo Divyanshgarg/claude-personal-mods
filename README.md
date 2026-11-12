@@ -11,6 +11,8 @@ Personal Claude Code mods.
 
 - **agent-board**: a side pane listing every subagent the session dispatched, with its brief, status, tool calls, token spend and one-line result. It opens when the first agent starts, or with `/board`.
 
+- **destructive-guard**: asks you before a destructive shell command runs (recursive deletes, force pushes, Oracle imports, schema drops, docker context switches and the like), showing the exact command. List what it covers with `/guard`.
+
 ## Install
 
 This repository is private: the machine needs a git credential for github.com (an SSH key, or `gh auth login` then `gh auth setup-git`).
@@ -23,6 +25,7 @@ claude plugin install env-status --marketplace Divyanshgarg/claude-personal-mods
 claude plugin install worklog --marketplace Divyanshgarg/claude-personal-mods
 claude plugin install evidence-band --marketplace Divyanshgarg/claude-personal-mods
 claude plugin install agent-board --marketplace Divyanshgarg/claude-personal-mods
+claude plugin install destructive-guard --marketplace Divyanshgarg/claude-personal-mods
 ```
 
 At the prompt of a terminal session:
@@ -33,6 +36,7 @@ At the prompt of a terminal session:
 /plugin install worklog --marketplace Divyanshgarg/claude-personal-mods
 /plugin install evidence-band --marketplace Divyanshgarg/claude-personal-mods
 /plugin install agent-board --marketplace Divyanshgarg/claude-personal-mods
+/plugin install destructive-guard --marketplace Divyanshgarg/claude-personal-mods
 ```
 
 In the desktop app: click + next to the prompt box, then Plugins, Add marketplace with `Divyanshgarg/claude-personal-mods`, then Add plugin.
@@ -46,4 +50,5 @@ claude plugin update env-status@personal-mods
 claude plugin update worklog@personal-mods
 claude plugin update evidence-band@personal-mods
 claude plugin update agent-board@personal-mods
+claude plugin update destructive-guard@personal-mods
 ```

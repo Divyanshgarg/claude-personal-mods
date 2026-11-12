@@ -23,6 +23,10 @@
     {
       "name": "agent-board",
       "source": "./agent-board"
+    },
+    {
+      "name": "destructive-guard",
+      "source": "./destructive-guard"
     }
   ]
 }
