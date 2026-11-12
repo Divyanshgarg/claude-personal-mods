@@ -1,0 +1,1 @@
+{ "name": "env-status", "version": "0.1.0", "description": "Status line showing the session's working directory, the FM share and the git branch." }

@@ -1,0 +1,1 @@
+{ "name": "session-ledger", "version": "0.1.0", "description": "A pane that logs every tool call of the session: what ran, when, how long, and whether it failed.", "types": "./types/index.d.ts" }

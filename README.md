@@ -1,0 +1,34 @@
+# claude-personal-mods
+
+Personal Claude Code mods.
+
+- **session-ledger**: a side pane that logs every tool call of the session with its time, target, duration and pass/fail. Open it with `/ledger`.
+- **env-status**: a status line showing the session's working directory, whether the FM share is mounted, and the git branch. Re-check with `/env`.
+
+## Install
+
+This repository is private: the machine needs a git credential for github.com (an SSH key, or `gh auth login` then `gh auth setup-git`).
+
+From a shell:
+
+```
+claude plugin install session-ledger --marketplace Divyanshgarg/claude-personal-mods
+claude plugin install env-status --marketplace Divyanshgarg/claude-personal-mods
+```
+
+At the prompt of a terminal session:
+
+```
+/plugin install session-ledger --marketplace Divyanshgarg/claude-personal-mods
+/plugin install env-status --marketplace Divyanshgarg/claude-personal-mods
+```
+
+In the desktop app: click + next to the prompt box, then Plugins, Add marketplace with `Divyanshgarg/claude-personal-mods`, then Add plugin.
+
+## Update
+
+```
+claude plugin marketplace update personal-mods
+claude plugin update session-ledger@personal-mods
+claude plugin update env-status@personal-mods
+```
