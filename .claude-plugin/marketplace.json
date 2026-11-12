@@ -1,8 +1,20 @@
 {
   "name": "personal-mods",
-  "owner": { "name": "personal" },
+  "owner": {
+    "name": "personal"
+  },
   "plugins": [
-    { "name": "session-ledger", "source": "./session-ledger" },
-    { "name": "env-status", "source": "./env-status" }
+    {
+      "name": "session-ledger",
+      "source": "./session-ledger"
+    },
+    {
+      "name": "env-status",
+      "source": "./env-status"
+    },
+    {
+      "name": "worklog",
+      "source": "./worklog"
+    }
   ]
 }

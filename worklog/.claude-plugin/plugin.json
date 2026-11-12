@@ -1,0 +1,1 @@
+{ "name": "worklog", "version": "0.1.0", "description": "Keeps a dated entry per session in the project's WORKLOG.md: what was asked, which files changed, commands run, and where it stands.", "types": "./types/index.d.ts" }
